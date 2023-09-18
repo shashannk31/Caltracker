@@ -1,0 +1,94 @@
+food_calories = {
+    "Rice (Brown)": 353.7,
+    "Rice Parboiled": 351.5,
+    "Rice Raw milled": 356.3,
+    "Wheat whole": 321.9,
+    "Wheat flour": 320.2,
+    "Bulgar wheat": 341.7,
+    "Refined flour": 351.8,
+    "Ragi": 320.7,
+    "Rice flakes": 353.7,
+    "Wheat semolina": 333.6,
+    "Wheat vermicelli": 332.6,
+    "Barley": 315.7,
+    "Bajra": 347.9,
+    "Jowar": 334.1,
+    "Quinoa": 328.3,
+    "Amaranth seed, Black": 356.1
+}
+
+
+food_calories = {
+    "Bengal gram, dal": 329.1,
+    "Bengal gram, whole": 287,
+    "Black gram whole": 291.3,
+    "Cow pea, brown": 320.2,
+    "Cow pea, white": 320.2,
+    "Green gram dal": 325.7,
+    "Green gram, whole": 293.7,
+    "Horse gram, whole": 329.5,
+    "Lentil dal": 322.4,
+    "Peas, dry": 303.2,
+    "Rajma, red": 299.2,
+    "Red gram, dal": 330.7,
+    "Red gram, whole": 273.9,
+    "Soya bean, brown": 381.4
+}
+
+
+food_calories = {
+    "Amaranth leaves": 30.5,
+    "Beet greens": 34.6,
+    "Brussels sprouts": 44.2,
+    "Cabbage Chinese": 17.9,
+    "Cabbage, green": 21.5,
+    "Cauliflower leaves": 35.4,
+    "Colocasia leaves, green": 43.4,
+    "Drumstick leaves": 67.3,
+    "Fenugreek leaves": 34.4,
+    "Lettuce": 21.7,
+    "Mustard leaves": 30.3,
+    "Parsley": 72.8,
+    "Radish leaves": 26.05,
+    "Spinach": 24.3
+}
+
+
+food_calories = {
+    "Ash gourd": 17.4,
+    "Bamboo shoot, tender": 16.2,
+    "Bitter gourd": 20.7,
+    "Bottle gourd": 10.9,
+    "Brinjal": 25.3,
+    "Broad beans": 29.3,
+    "Capsicum": 16.2,
+    "Cauliflower": 22.9,
+    "Celery stalk": 16.4,
+    "Cho-Cho-Marrow": 18.8,
+    "Cluster beans": 40.1,
+    "Cucumber": 19.5,
+    "French beans": 24.3,
+    "Knol-Khol": 16,
+    "Kovai": 19.1,
+    "Ladies finger": 27.4,
+    "Parwar": 24.1,
+    "Peas, fresh": 81.2,
+    "Plantain stem": 39.4,
+    "Pumpkin": 23.1,
+    "Ridge gourd": 13.1,
+    "Snake gourd": 12.4,
+    "Tomato": 20.7,
+    "Zucchini, green": 20
+}
+
+
+food_calories = {
+    "Beetroot": 35.6,
+    "Carrot": 33.2,
+    "Potato brown": 69.7,
+    "Radish, white": 32.2,
+    "Sweet potato, brown": 108.9,
+    "Tapioca": 79.8,
+    "Yam": 84.3
+}
+

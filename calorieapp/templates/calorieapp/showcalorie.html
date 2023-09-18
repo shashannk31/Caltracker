@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Mooli&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caltracker</title>
+    <style>
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+        /* Style the body */
+        body {
+            background-image: url("{% static 'calorieapp/caloriecounterbg.jpg' %}");  
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        /* Header styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            text-align: left;
+            padding: 15px 0;
+            position: relative; /* Add relative positioning */
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+        }
+        /* Logout button styles */
+        .logoutbutton {
+            position: absolute;
+            top: 10px; /* Adjust top positioning */
+            right: 10px; /* Adjust right positioning */
+            margin-top: 13px;
+            padding: 5px;
+            background-color:#8051a3;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logoutbutton:hover {
+            background-color: #82588d;
+        }
+        h1 {
+            font-size: 36px;
+            margin-left: 15px;
+            letter-spacing: 3.5px;
+            text-decoration: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* This ensures it takes up the full viewport height */
+        }
+        .showcaloriecontainer {
+            background-color: rgba(0, 0, 0, 0.87);
+            color: #8051a3;
+            font-size: 30px;
+            font-weight: bolder;
+            padding: 20px;
+            border-radius: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            text-align: center;
+            line-height: 65px;
+        }
+        .totalcalories {
+            color: #ffffff;
+            font-size: 75px;
+        }
+        .keepfueling {
+            color: #fff;
+        }
+        .text-danger1 { 
+            background-color: rgba(227, 72, 72, 0.7);
+            opacity: 2;
+            padding: 1px;
+            font-weight: bolder;
+            padding-left: 2px;
+            border-radius: 3px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 5px;
+            margin-top: 0.1px;
+            font-size: 25px;
+            line-height: normal;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 0.5px;
+        }
+        .color-first-three {
+            color: #8051a3; 
+        }
+        .spantracker {
+            color: aliceblue;
+        }
+        .no-underline {
+            text-decoration: none;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logout button in the top right corner -->
+        <form method="post" action="{% url 'logoutuser' %}" class="logout-button">
+            {% csrf_token %}
+            <button type="submit" class="logoutbutton">Logout</button>
+        </form>
+        <a href="{% url 'caloriecounter' %}"><h1 class="color-first-three">Cal<span class="spantracker">tracker</span></h1></a>
+    </header>
+
+    <div class="center-container">
+        <div class="showcaloriecontainer">
+            <h2>You are <br><span class="totalcalories">{{ total_calories }}</span><br> calories richer <br><span class="keepfueling">Keep fueling!</span><br></h2>
+            {% if error %}
+                <p class="text-danger1">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://shashannk.netlify.app/" class="no-underline" target="_blank">&copy; Shashannk S</a>
+    </footer>
+</body>
+</html>
+

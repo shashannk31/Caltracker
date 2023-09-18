@@ -1,0 +1,203 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Mooli&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caltracker</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+        /* Style the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url("{% static 'calorieapp/caloriecounterbg.jpg' %}");  
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgb(0, 0, 0, 0.85);
+            color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+            justify-content: flex-start; /* Align items along the same vertical line */
+            padding: 20px;
+            margin-bottom: 80px;
+            margin-top: 130px;
+        }
+        h3 {
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-size: 25px;
+        }
+        #readonlyField {
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+        .container {
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center; /* Center the text within the container */
+        }
+        .calculate {
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            background-color:#8051a3;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculate:hover {
+            background-color: #82588d;
+        }
+
+        
+        /* Header styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            text-align: left;
+            padding: 15px 0;
+            position: fixed; /* Add relative positioning */
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+        }
+        /* Logout button styles */
+        .logoutbutton {
+            position: absolute;
+            top: 10px; /* Adjust top positioning */
+            right: 10px; /* Adjust right positioning */
+            margin-top: 13px;
+            padding: 5px;
+            background-color:#8051a3;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logoutbutton:hover {
+            background-color: #82588d;
+        }
+        h1 {
+            font-size: 36px;
+            margin-left: 15px;
+            letter-spacing: 3.5px;
+            text-decoration: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 0.5px;
+        }
+        .color-first-three {
+            color: #8051a3; 
+        }
+        .spantracker {
+            color: aliceblue;
+        }
+        .no-underline {
+            text-decoration: none;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logout button in the top right corner -->
+        <form method="post" action="{% url 'logoutuser' %}" class="logout-button">
+            {% csrf_token %}
+            <button type="submit" class="logoutbutton">Logout</button>
+        </form>
+        <a href="{% url 'caloriecounter' %}"><h1 class="color-first-three">Cal<span class="spantracker">tracker</span></h1></a>
+    </header>
+    
+    <div class="container">
+        <form method="post" action="{% url 'showcalorie' %}">
+            <h3>
+                Number of food items you have entered: 
+                <input type="text" id="readonlyField" name="readonlyField" value="{{ number_of_food_items }}" readonly>
+            </h3>
+            {% csrf_token %}
+            {% for i in "123456789"|slice:number_of_food_items %}
+                <label for="food_item_{{ i }}">Enter your food item  {{ i }}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="food_item_{{ i }}" id="food_item_{{ i }}" list="food_options_{{ i }}" required>
+                <br>
+                <label for="quantity_food_item_{{ i }}">Quantity of food item {{ i }} (in grams):</label>
+                <input type="number" name="quantity_food_item_{{ i }}" id="quantity_food_item_{{ i }}" list="quantity_food_item_{{ i }}" min="1" max="100000000"  required>
+                <datalist id="food_options_{{ i }}">
+                    {% for food_item in food_items %}
+                        <option value="{{ food_item }}">{{ food_item }}</option>
+                    {% endfor %}
+                </datalist>
+                <br>
+                <br>
+            {% endfor %}
+            <button type="submit" class="calculate">Calculate</button>
+        </form>
+    </div>
+
+    <footer>
+        <a href="https://shashannk.netlify.app/" class="no-underline" target="_blank">&copy; Shashannk S</a>
+    </footer>
+</body>
+</html>
+{% endblock %}

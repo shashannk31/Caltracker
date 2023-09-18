@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Caltracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Mooli&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the body */
+        body {
+            background-image: url("{% static 'calorieapp/caloriecounterbg.jpg' %}");  
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Header styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            text-align: left;
+            padding: 15px 0;
+            position: relative; /* Add relative positioning */
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* Logout button styles */
+        .logoutbutton {
+            position: absolute;
+            top: 10px; /* Adjust top positioning */
+            right: 10px; /* Adjust right positioning */
+            margin-top: 13px;
+            padding: 5px;
+            background-color:#8051a3;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logoutbutton:hover {
+            background-color: #82588d;
+        }
+        /* Styling for .container */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: aliceblue;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center; /* Center text horizontally */
+            margin-top: 150px;
+        }
+        /* Styling for the heading */
+        .container h2 {
+            font-size: 24px;
+            color: #8051a3;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 30px;
+            letter-spacing: 1.5px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+        /* Styling for the form */
+        .container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Styling for the label and input */
+        .container label {
+            font-size: 18px;
+            color: aliceblue;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+        .container input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #999999;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        /* Styling for the button */
+        .container button[type="submit"] {
+            padding: 10px 20px;
+            background-color:#8051a3;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 1px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .container button[type="submit"]:hover {
+            background-color: #82588d;
+        }
+        #number_of_food_items {
+            width: 100px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-left: 15px;
+            letter-spacing: 3.5px;
+            text-decoration: none;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        .color-first-three {
+            color: #8051a3; 
+        }
+
+        .spantracker {
+            color: aliceblue;
+        }
+
+        .no-underline {
+            text-decoration: none;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logout button in the top right corner -->
+        <form method="post" action="{% url 'logoutuser' %}" class="logout-button">
+            {% csrf_token %}
+            <button type="submit" class="logoutbutton">Logout</button>
+        </form>
+        <a href="{% url 'caloriecounter' %}"><h1 class="color-first-three">Cal<span class="spantracker">tracker</span></h1></a>
+    </header>
+
+    <div class="container">
+        <h2>Hello {{ user.username }}!</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="number_of_food_items">Enter the number of food items: </label>
+            <input type="number" name="number_of_food_items" id="number_of_food_items" list="number_of_food_items" min="1" max="9" required>
+            <button type="submit">Submit</button>   
+        </form>
+    </div>
+
+    <footer>
+         <a href="https://shashannk.netlify.app/" class="no-underline" target="_blank">&copy; Shashannk S</a>
+    </footer>
+</body>
+</html>

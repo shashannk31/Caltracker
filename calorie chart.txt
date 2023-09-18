@@ -1,0 +1,232 @@
+Almond - 609.2
+Amaranth leaves - 30.5
+Amaranth seed, Black - 356.1
+Anise seeds - 153.3
+Apple - 62.3
+Apricot, dried - 31.5
+Areca nut dried - 350.6
+Ash gourd - 17.4
+Asafoetida - 331.5
+Avocado - 144.3
+Bajra - 347.9
+Bamboo shoot, tender - 16.2
+Banana - 110.6
+Basil seeds - 22
+Beef, chops - 139.8
+Beet greens - 34.6
+Beetroot - 35.6
+Bengal gram, dal - 329.1
+Bengal gram, whole - 287
+Bitter gourd - 20.7
+Black cumin (Kalonji) - 345
+Blackberry fruit - 54.2
+Blackcurrants - 54.2
+Bottle gourd - 10.9
+Brinjal - 25.3
+Broad beans - 29.3
+Brussels sprouts - 44.2
+Cabbage Chinese - 17.9
+Cabbage, green - 21.5
+Capsicum - 16.2
+Cardamom, green - 255
+Carrot - 33.2
+Cat fish - 108.9
+Catla - 94.1
+Cauliflower - 22.9
+Cauliflower leaves - 35.4
+Celery stalk - 16.4
+Cheese - 264.5
+Cherries red - 59.7
+Chicken, breast, skinless - 168.2
+Chicken, leg, skinless - 383.6
+Chicken, liver - 123.8
+Chicken, thigh, skinless - 199.8
+Chia seeds - 486
+Chickpea, brown - 287
+Cloves - 186.6
+Coconut dry - 624
+Coconut fresh - 408.9
+Coconut water - 15.2
+Colocasia leaves, green - 43.4
+Coriander seeds - 268.8
+Crab - 81.9
+Cucumber - 19.5
+Custard apple - 98.9
+Curry leaves - 63.5
+Drumstick leaves - 67.3
+Egg white, raw - 44.6
+Egg yolk, raw - 296.8
+Egg, whole, raw - 134.7
+Fenugreek leaves - 34.4
+Fenugreek seeds - 234.9
+Fig - 81.5
+Flax seeds - 534
+French beans - 24.3
+Garlic - 123.8
+Ginger, fresh - 54.9
+Gingelly seeds - 507.6
+Goat - 188
+Grapes - 60.7
+Green chillies - 45.6
+Groundnut - 520
+Guava - 32.2
+Ghee - 920
+Horse gram, whole - 329.5
+Jaggery cane - 353.7
+Jack fruit - 72.1
+Jowar - 334.1
+Knol-Khol - 16
+Khoa - 315.9
+Lentil dal - 322.4
+Lettuce - 21.7
+Lobster - 89.6
+Mackerel - 101
+Mango - 41.8
+Matha - 92.9
+Milk, whole, buffalo - 107.3
+Milk, whole, cow - 72.8
+Mint leaves - 37
+Mustard leaves - 30.3
+Nutmeg - 463.6
+Oil - 900
+Onion - 48
+Orange - 37.2
+Oyster - 60.2
+Papaya - 23.9
+Parsley - 72.8
+Parwal - 24.1
+Peach - 40.1
+Pear - 37.5
+Pepper, black - 217.4
+Pine seed - 594.1
+Pineapple - 43
+Plantain stem - 39.4
+Plum - 56.8
+Pomegranate - 54.7
+Poppy seeds - 422.5
+Pork, chops - 178.7
+Pork, shoulder - 237.3
+Potato brown - 69.7
+Pumpkin - 23.1
+Quinoa - 328.3
+Radish leaves - 26.05
+Radish, white - 32.2
+Ragi - 320.7
+Rajma, red - 299.2
+Raisins, black - 305.6
+Red chillies - 236.6
+Red gram, dal - 330.7
+Red gram, whole - 273.9
+Rice (Brown) - 353.7
+Rice flakes - 353.7
+Rice Parboiled - 351.5
+Rice Raw milled - 356.3
+Ridge gourd - 13.1
+Sardine - 152.2
+Shark - 95.1
+Silver fish - 132.6
+Snake gourd - 12.4
+Soya bean, brown - 381.4
+Soy milk - 54
+Spinach - 24.3
+Squid - 80
+Strawberries - 24.6
+Sugarcane, juice - 57.8
+Sunflower seeds - 586.2
+Sweet lime - 27.2
+Sweet potato, brown - 108.9
+Tapioca - 79.8
+Tiger prawns - 65.2
+Tofu - 76
+Tomato - 20.7
+Tuna - 112.3
+Turmeric powder - 280.5
+Walnut - 671
+Watermelon - 20.3
+Wheat flour - 320.2
+Wheat whole - 321.9
+Wheat vermicelli - 332.6
+Wheat semolina - 333.6
+Wood apple - 78.1
+Yam - 84.3
+
+
+write a html code that asks the user the number of food items they have eaten and accordingly display such many boxes where each box contains a dropdown that allows the user to choose a food item from above and another textfield where the user can enter the quantity of food they have consumed in gms.
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Consumption Tracker</title>
+</head>
+<body>
+    <h1>Food Consumption Tracker</h1>
+    <form id="food-form">
+        <label for="num-items">Number of Food Items Eaten:</label>
+        <input type="number" id="num-items" name="num-items" min="1" max="9" required><br><br>
+
+        <div id="food-inputs"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Function to generate dropdown options for food items
+        function generateFoodOptions() {
+          const foodOptions = [
+  "Almond", "Amaranth leaves", "Amaranth seed, Black", "Anise seeds", "Apple", "Apricot, dried", "Areca nut dried", "Ash gourd", "Asafoetida", "Avocado",
+  "Bajra", "Bamboo shoot, tender", "Banana", "Basil seeds", "Beef, chops", "Beet greens", "Beetroot", "Bengal gram, dal", "Bengal gram, whole", "Bitter gourd",
+  "Black cumin (Kalonji)", "Blackberry fruit", "Blackcurrants", "Bottle gourd", "Brinjal", "Broad beans", "Brussels sprouts", "Cabbage Chinese", "Cabbage, green", "Capsicum",
+  "Cardamom, green", "Carrot", "Cat fish", "Catla", "Cauliflower", "Cauliflower leaves", "Celery stalk", "Cheese", "Cherries red", "Chicken, breast, skinless",
+  "Chicken, leg, skinless", "Chicken, liver", "Chicken, thigh, skinless", "Chia seeds", "Chickpea, brown", "Cloves", "Coconut dry", "Coconut fresh", "Coconut water", "Colocasia leaves, green",
+  "Coriander seeds", "Crab", "Cucumber", "Custard apple", "Curry leaves", "Drumstick leaves", "Egg white, raw", "Egg yolk, raw", "Egg, whole, raw", "Fenugreek leaves",
+  "Fenugreek seeds", "Fig", "Flax seeds", "French beans", "Garlic", "Ginger, fresh", "Gingelly seeds", "Goat", "Grapes", "Green chillies",
+  "Groundnut", "Guava", "Ghee", "Horse gram, whole", "Jaggery cane", "Jack fruit", "Jowar", "Knol-Khol", "Khoa", "Lentil dal",
+  "Lettuce", "Lobster", "Mackerel", "Mango", "Matha", "Milk, whole, buffalo", "Milk, whole, cow", "Mint leaves", "Mustard leaves", "Nutmeg",
+  "Oil", "Onion", "Orange", "Oyster", "Papaya", "Parsley", "Parwal", "Peach", "Pear", "Pepper, black",
+  "Pine seed", "Pineapple", "Plantain stem", "Plum", "Pomegranate", "Poppy seeds", "Pork, chops", "Pork, shoulder", "Potato brown", "Pumpkin",
+  "Quinoa", "Radish leaves", "Radish, white", "Ragi", "Rajma, red", "Raisins, black", "Red chillies", "Red gram, dal", "Red gram, whole", "Rice (Brown)",
+  "Rice flakes", "Rice Parboiled", "Rice Raw milled", "Ridge gourd", "Sardine", "Shark", "Silver fish", "Snake gourd", "Soya bean, brown", "Soy milk",
+  "Spinach", "Squid", "Strawberries", "Sugarcane, juice", "Sunflower seeds", "Sweet lime", "Sweet potato, brown", "Tapioca", "Tiger prawns", "Tofu",
+  "Tomato", "Tuna", "Turmeric powder", "Walnut", "Watermelon", "Wheat flour", "Wheat whole", "Wheat vermicelli", "Wheat semolina", "Wood apple", "Yam"
+]
+
+
+
+            return foodOptions.map((foodItem) => `<option value="${foodItem}">${foodItem}</option>`).join('');
+        }
+
+        function addFoodInputs() {
+            const numItems = parseInt(document.getElementById("num-items").value);
+            const foodInputsContainer = document.getElementById("food-inputs");
+            foodInputsContainer.innerHTML = '';
+
+            for (let i = 1; i <= numItems; i++) {
+                const foodInput = `
+                    <div>
+                        <label for="food-item-${i}">Food Item ${i}:</label>
+                        <input list="food-options" id="food-item-${i}" name="food-item-${i}" required>
+                        <datalist id="food-options">
+                            ${generateFoodOptions()}
+                        </datalist>
+                        <label for="food-quantity-${i}">Quantity (gms):</label>
+                        <input type="number" id="food-quantity-${i}" name="food-quantity-${i}" min="1" required>
+                    </div>
+                `;
+                foodInputsContainer.innerHTML += foodInput;
+            }
+        }
+
+        // Attach the addFoodInputs function to the 'change' event of the num-items input
+        document.getElementById("num-items").addEventListener("change", addFoodInputs);
+
+        // Initial call to addFoodInputs
+        addFoodInputs();
+    </script>
+</body>
+</html>
