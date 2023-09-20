@@ -43,7 +43,7 @@ def logoutuser(request):
 
 import csv
 
-path='C:\Django Nick Walter\calorie_counter-project\calories.csv'
+path='C:\Django Nick Walter\caltracker\Caltracker\calories.csv'
 
 with open(path,'r',encoding='utf-8') as file:
     csv_reader=csv.reader(file)
